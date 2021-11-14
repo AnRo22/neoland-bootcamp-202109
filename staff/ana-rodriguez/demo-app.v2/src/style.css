@@ -1,0 +1,358 @@
+body {
+  background-color: #a2c1da;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  margin: 0;
+  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flh4.googleusercontent.com%2F-cAlY4fBAjKU%2FUWLz9rNHmwI%2FAAAAAAAAADk%2FnPWaIwyOn9c%2Fs0-d%2FFondoAzulDegradadoCentro%2525252B%25252525281%2525252529.png&f=1&nofb=1');
+}
+
+.containers {
+  max-width: 40%;
+  margin: 0 auto;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.383);
+  border-radius: 20px;
+  height: fit-content;
+  backdrop-filter: blur(5px);
+  box-shadow: rgba(0, 0, 0, .1) 0px 0px 10px 5px;
+}
+
+.containers-glass {
+  max-width: 40%;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, .1) 0px 0px 10px 5px;
+  background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.designtrends.com%2Fwp-content%2Fuploads%2F2015%2F11%2F12093224%2FTransparent-Glass-Texture2.jpg&f=1&nofb=1');
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-color: #5c91d9;
+}
+
+.nav__buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1em;
+}
+
+.home__container {
+  display: flex;
+  justify-content: center;
+}
+
+/* BUTTONS */
+.button {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px 35px;
+}
+
+.button__slim {
+  width: fit-content;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px 35px;
+}
+
+.button:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.button:active {
+  color: #000
+}
+
+.button:active:after {
+  background: transparent;
+}
+
+.button:hover:before {
+  opacity: 1;
+}
+
+.button:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* LANDING */
+
+.landing__title {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Merienda', cursive;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+  background-image: linear-gradient(to right, orange, #ec38bc, #7303c0, rgb(25, 40, 245));
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
+}
+
+
+
+.landing__subtitle {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: white;
+}
+
+.landing__buttons {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+.grid-col, .grid-col .form__inputname {
+  display: grid;
+  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+/* REGISTER */
+
+.form__title {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 3rem;
+  color: rgb(216, 229, 231)
+}
+
+.form__subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgb(27, 19, 25)
+}
+
+.form__input {
+  margin: 5px;
+  height: 50px;
+  width: 300px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid;
+  color: black;
+}
+
+.form__input::placeholder {
+  color: lightgrey;
+}
+
+.form__terms {
+  justify-content: center;
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.register__buttons {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+/* LOGIN */
+
+
+
+.Login__tittle {
+  text-align: center;
+  font-family: 'Birthstone', cursive;
+  font-size: 1.5rem;
+  color: rgb(248, 248, 248)
+}
+
+.login__subtittle {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.2rem;
+  color: #f3f1f5;
+}
+
+.Login__inputs {
+  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+.button__login {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+/* HOME */
+
+.home__title {
+  text-align: center;
+  font-family: 'Birthstone', cursive;
+  font-size: 4rem;
+  color: rgb(230, 212, 226)
+}
+
+.home__subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: white
+}
+
+.home__results {
+  max-height: 500px;
+  overflow: auto;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+.button-search {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+.home__detail {
+  color: white;
+}
+
+.cart {
+  color: white;
+}
+
+/* SPINNER */
+
+@keyframes animacion {
+  0% {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(1turn)
+  }
+}
+
+.spinner2 {
+  width: 100px;
+  animation: animacion 1s linear infinite;
+  position: absolute;
+  left: calc(50% - 50px);
+  top: calc(50% - 50px);
+}
+
+.bloqueo {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .6);
+  display: flex;
+  top: 0;
+}
+
+/* CART */
+.name_vehicles {
+  color: #e7d5e3
+}
+
+/* FEEDBACK */
+.feedback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, .9);
+  z-index: 999;
+}
+
+.feedback .panel.container {
+    padding: 32px;
+    background: rgba(3,0,228,0.52);
+    border-radius: 5 px;
+    color: white;
+    font-size: 1.5em;
+}
