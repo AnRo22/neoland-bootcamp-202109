@@ -1,11 +1,10 @@
-debugger
 const fs = require('fs')
 const { readFile, writeFile } = fs
 
 const { argv: [, , command] } = process // Lo que antes era document ""
 
 if (command === 'list') // $ node agenda.js list
-    readFile('agenda.json', 'utf8', (error, json) => {
+    readFile('contacts.json', 'utf8', (error, json) => {
         if (error) {
             console.error(error)
 
@@ -40,20 +39,46 @@ else if (command === 'save') // $ node agenda.js save Mario 456456456 mario@mail
             }
         })
     })
-else if (command === 'find') // $ node agenda.js find peter
-readFile('agenda.json','utf8', (error,json) => {
-    if(error){
-        console.error(error.message)
-        return
-    }
-    const contacts = JSON.parse(json)
+// else if (command === 'find') // $ node agenda.js find peter
+// readFile('contacts.json','utf8', (error,json) => {
+//     if(error){
+//         console.error(error.message)
+//         return
+//     }
+//     const contacts = JSON.parse(json)
 
-     contacts.find(({name, phone, email})=>console.log(name,phone,email))
-     console.log("Empieza", contacts.find(({name}) => name.toLowerCase() === argv4))
+//      contacts.find(({name, phone, email})=>console.log(name,phone,email))
+//      console.log("Empieza", contacts.find(({name}) => name.toLowerCase() === argv4))
+// })
+
+// También otra lógica
+else if (command === 'find')// $ node agenda.js find peter
+readFile('contacts.json','utf8', (error,json) => {
+    if(error)return
+        console.error(error.message)
+        
+
+        const contact = JSON.parse(json)
+        let {arg:[, , , query]} = process
+        
+        query = query.toLowerCase()
+
+        const results = contacts.filter(({name, phone, email})=>
+         name.toLowerCase().includes(query) ||
+         phone.toLowerCase().includes(query) || 
+         email.toLowerCase().includes(query))
+
+         console.log('ID NAME PHONE E-MAIL')
+
+         results.forEach(({id,name,phone,email})=>console.log
+         (id,name,phone,email))
+
 })
 
+
+
 else if(command==='splice')// $ node agenda.js remove 3
-readFile('agenda.json', 'utf8', (error,json)=>{
+readFile('contacts.json', 'utf8', (error,json)=>{
     if(error){
         console.error(error)
 
@@ -64,7 +89,7 @@ readFile('agenda.json', 'utf8', (error,json)=>{
 
     console.log('id name phone email')
 
-    contacts.splicce(remove,1)
+    contacts.splice(remove,1)
     console.log(contacts)
     const json2 = JSON.stringify(contacts, null, 4)
     writeFile('./agenda.json', json2, error => {
@@ -76,6 +101,12 @@ readFile('agenda.json', 'utf8', (error,json)=>{
     })
     
 })
+
+else if (command ==='remove') {
+    const start = date.now()
+
+    readFile ('.contacts.json', 'utf8', (error))
+}
 
 
 
